@@ -1,103 +1,408 @@
-import Image from "next/image";
+import AnimatedSection from "../components/AnimatedSection";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-foreground/5 transition-colors duration-300">
+      {/* Hero Section */}
+      <section id="home" className="min-h-screen flex items-center pt-20">
+        <main className="container mx-auto px-6 py-20 lg:py-32">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Profile Image */}
+            <AnimatedSection animation="scale" delay={200}>
+              <div className="mb-8 relative inline-block">
+                <div className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1 shadow-2xl">
+                  <div className="w-full h-full rounded-full bg-background flex items-center justify-center text-4xl md:text-5xl font-bold text-foreground">
+                    👋
+                  </div>
+                </div>
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-background animate-pulse"></div>
+              </div>
+            </AnimatedSection>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            {/* Main Heading */}
+            <AnimatedSection animation="fadeUp" delay={400}>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+                Hi, I&apos;m{" "}
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+                  Bijay
+                </span>
+              </h1>
+            </AnimatedSection>
+
+            {/* Subtitle */}
+            <AnimatedSection animation="fadeUp" delay={600}>
+              <p className="text-xl md:text-2xl text-foreground/70 mb-8 leading-relaxed max-w-2xl mx-auto">
+                Full-Stack Developer & UI/UX Enthusiast
+              </p>
+            </AnimatedSection>
+
+            {/* Description */}
+            <AnimatedSection animation="fadeUp" delay={800}>
+              <p className="text-lg md:text-xl text-foreground/60 mb-12 leading-relaxed max-w-3xl mx-auto">
+                I craft beautiful, functional, and user-centered digital
+                experiences. Passionate about creating innovative solutions that
+                make a difference.
+              </p>
+            </AnimatedSection>
+
+            {/* CTA Buttons */}
+            <AnimatedSection animation="fadeUp" delay={1000}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+                <a
+                  href="#projects"
+                  className="group relative px-8 py-4 bg-foreground text-background rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-foreground/20"
+                >
+                  <span className="relative z-10">View My Work</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
+
+                <a
+                  href="#contact"
+                  className="px-8 py-4 border-2 border-foreground/20 text-foreground rounded-full font-semibold text-lg transition-all duration-300 hover:border-foreground/40 hover:bg-foreground/5 hover:scale-105"
+                >
+                  Get In Touch
+                </a>
+              </div>
+            </AnimatedSection>
+
+            {/* Skills Pills */}
+            <AnimatedSection animation="fadeUp" delay={1200}>
+              <div className="flex flex-wrap justify-center gap-3 mb-16">
+                {[
+                  "React",
+                  "Next.js",
+                  "TypeScript",
+                  "Node.js",
+                  "Python",
+                  "UI/UX",
+                ].map((skill, index) => (
+                  <span
+                    key={skill}
+                    className="px-4 py-2 bg-foreground/10 text-foreground/70 rounded-full text-sm font-medium hover:bg-foreground/20 transition-colors duration-300 cursor-default"
+                    style={{
+                      animationDelay: `${1400 + index * 100}ms`,
+                    }}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </AnimatedSection>
+
+            {/* Scroll Indicator */}
+            <AnimatedSection animation="fadeIn" delay={1600}>
+              <div className="flex flex-col items-center">
+                <p className="text-foreground/50 text-sm mb-2">
+                  Scroll to explore
+                </p>
+                <div className="w-6 h-10 border-2 border-foreground/20 rounded-full flex justify-center">
+                  <div className="w-1 h-3 bg-foreground/40 rounded-full mt-2 animate-bounce"></div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </main>
+      </section>
+
+      {/* About Section */}
+      <section
+        id="about"
+        className="min-h-screen flex items-center justify-center bg-foreground/5 py-20 transition-colors duration-300"
+      >
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            {/* Section Header */}
+            <AnimatedSection animation="fadeUp">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                  About{" "}
+                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+                    Me
+                  </span>
+                </h2>
+                <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
+                  Passionate developer with a love for creating meaningful
+                  digital experiences
+                </p>
+              </div>
+            </AnimatedSection>
+
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Left Column - Image and Stats */}
+              <div className="space-y-8">
+                {/* Profile Image */}
+                <AnimatedSection animation="fadeLeft" delay={200}>
+                  <div className="relative">
+                    <div className="w-80 h-80 mx-auto md:mx-0 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-1 shadow-2xl">
+                      <div className="w-full h-full rounded-2xl bg-background flex items-center justify-center text-8xl">
+                        👨‍💻
+                      </div>
+                    </div>
+                    <div className="absolute -bottom-4 -right-4 bg-background rounded-xl p-4 shadow-lg border border-foreground/10">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-foreground">
+                          3+
+                        </div>
+                        <div className="text-xs text-foreground/60">
+                          Years Experience
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </AnimatedSection>
+
+                {/* Quick Stats */}
+                <AnimatedSection animation="fadeUp" delay={400}>
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="text-center p-4 bg-background/50 rounded-xl border border-foreground/10">
+                      <div className="text-2xl font-bold text-foreground">
+                        50+
+                      </div>
+                      <div className="text-sm text-foreground/60">Projects</div>
+                    </div>
+                    <div className="text-center p-4 bg-background/50 rounded-xl border border-foreground/10">
+                      <div className="text-2xl font-bold text-foreground">
+                        15+
+                      </div>
+                      <div className="text-sm text-foreground/60">
+                        Technologies
+                      </div>
+                    </div>
+                    <div className="text-center p-4 bg-background/50 rounded-xl border border-foreground/10">
+                      <div className="text-2xl font-bold text-foreground">
+                        ∞
+                      </div>
+                      <div className="text-sm text-foreground/60">Learning</div>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              </div>
+
+              {/* Right Column - Content */}
+              <div className="space-y-6">
+                <AnimatedSection animation="fadeRight" delay={300}>
+                  <div className="space-y-4">
+                    <h3 className="text-2xl font-semibold text-foreground">
+                      Hi there! I&apos;m Bijay 👋
+                    </h3>
+                    <p className="text-foreground/70 leading-relaxed">
+                      I&apos;m a passionate full-stack developer who loves
+                      turning ideas into beautiful, functional applications.
+                      With a strong foundation in modern web technologies and a
+                      keen eye for design, I create digital experiences that
+                      users love.
+                    </p>
+                    <p className="text-foreground/70 leading-relaxed">
+                      My journey in tech started with curiosity and has evolved
+                      into a passion for solving complex problems through code.
+                      I enjoy working with both frontend and backend
+                      technologies, always staying updated with the latest
+                      trends and best practices.
+                    </p>
+                  </div>
+                </AnimatedSection>
+
+                {/* What I Do */}
+                <AnimatedSection animation="fadeUp" delay={500}>
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-semibold text-foreground">
+                      What I Do
+                    </h4>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mt-0.5">
+                          <span className="text-white text-xs">🎨</span>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-foreground">
+                            Frontend Development
+                          </h5>
+                          <p className="text-sm text-foreground/60">
+                            Creating responsive, interactive user interfaces
+                            with React, Next.js, and modern CSS
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mt-0.5">
+                          <span className="text-white text-xs">⚙️</span>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-foreground">
+                            Backend Development
+                          </h5>
+                          <p className="text-sm text-foreground/60">
+                            Building robust APIs and server-side applications
+                            with Node.js, Python, and databases
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-6 h-6 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex items-center justify-center mt-0.5">
+                          <span className="text-white text-xs">💡</span>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-foreground">
+                            UI/UX Design
+                          </h5>
+                          <p className="text-sm text-foreground/60">
+                            Designing user-centered experiences with attention
+                            to usability and aesthetics
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </AnimatedSection>
+
+                {/* Download Resume Button */}
+                <AnimatedSection animation="fadeUp" delay={700}>
+                  <div className="pt-4">
+                    <a
+                      href="#"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+                    >
+                      <span>Download Resume</span>
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </AnimatedSection>
+              </div>
+            </div>
+
+            {/* Education & Experience Timeline */}
+            <AnimatedSection animation="fadeUp" delay={800}>
+              <div className="mt-20">
+                <h3 className="text-3xl font-bold text-foreground text-center mb-12">
+                  My Journey
+                </h3>
+                <div className="relative">
+                  {/* Timeline Line */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-600 rounded-full"></div>
+
+                  <div className="space-y-12">
+                    {/* Timeline Item 1 */}
+                    <AnimatedSection animation="fadeRight" delay={1000}>
+                      <div className="flex items-center relative">
+                        <div className="flex-1 text-right pr-8">
+                          <div className="bg-background/80 backdrop-blur-sm border border-foreground/10 rounded-xl p-6 shadow-lg">
+                            <h4 className="font-semibold text-foreground">
+                              Computer Science Degree
+                            </h4>
+                            <p className="text-foreground/60 text-sm">
+                              University Name • 2020-2024
+                            </p>
+                            <p className="text-foreground/70 text-sm mt-2">
+                              Graduated with honors, specializing in software
+                              engineering and web development
+                            </p>
+                          </div>
+                        </div>
+                        <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-background"></div>
+                        <div className="flex-1 pl-8"></div>
+                      </div>
+                    </AnimatedSection>
+
+                    {/* Timeline Item 2 */}
+                    <AnimatedSection animation="fadeLeft" delay={1200}>
+                      <div className="flex items-center relative">
+                        <div className="flex-1 pr-8"></div>
+                        <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-background"></div>
+                        <div className="flex-1 pl-8">
+                          <div className="bg-background/80 backdrop-blur-sm border border-foreground/10 rounded-xl p-6 shadow-lg">
+                            <h4 className="font-semibold text-foreground">
+                              Frontend Developer
+                            </h4>
+                            <p className="text-foreground/60 text-sm">
+                              Tech Company • 2022-2023
+                            </p>
+                            <p className="text-foreground/70 text-sm mt-2">
+                              Developed responsive web applications using React
+                              and modern JavaScript
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </AnimatedSection>
+
+                    {/* Timeline Item 3 */}
+                    <AnimatedSection animation="fadeRight" delay={1400}>
+                      <div className="flex items-center relative">
+                        <div className="flex-1 text-right pr-8">
+                          <div className="bg-background/80 backdrop-blur-sm border border-foreground/10 rounded-xl p-6 shadow-lg">
+                            <h4 className="font-semibold text-foreground">
+                              Full-Stack Developer
+                            </h4>
+                            <p className="text-foreground/60 text-sm">
+                              Freelance • 2023-Present
+                            </p>
+                            <p className="text-foreground/70 text-sm mt-2">
+                              Building end-to-end solutions for clients across
+                              various industries
+                            </p>
+                          </div>
+                        </div>
+                        <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-background"></div>
+                        <div className="flex-1 pl-8"></div>
+                      </div>
+                    </AnimatedSection>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      <section
+        id="projects"
+        className="min-h-screen flex items-center justify-center transition-colors duration-300"
+      >
+        <AnimatedSection animation="fadeUp">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Projects
+            </h2>
+            <p className="text-foreground/70">Coming soon...</p>
+          </div>
+        </AnimatedSection>
+      </section>
+
+      <section
+        id="skills"
+        className="min-h-screen flex items-center justify-center bg-foreground/5 transition-colors duration-300"
+      >
+        <AnimatedSection animation="scale">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-foreground mb-4">Skills</h2>
+            <p className="text-foreground/70">Coming soon...</p>
+          </div>
+        </AnimatedSection>
+      </section>
+
+      <section
+        id="contact"
+        className="min-h-screen flex items-center justify-center transition-colors duration-300"
+      >
+        <AnimatedSection animation="fadeUp">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-foreground mb-4">Contact</h2>
+            <p className="text-foreground/70">Coming soon...</p>
+          </div>
+        </AnimatedSection>
+      </section>
     </div>
   );
 }
